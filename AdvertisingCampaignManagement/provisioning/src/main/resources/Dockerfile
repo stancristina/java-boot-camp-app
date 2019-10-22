@@ -2,7 +2,7 @@ FROM mysql/mysql-server:latest
 
 ENV MYSQL_ROOT_PASSWORD="devcamp"
 
-#For Windows, we need to add uncomment the following command
+#For Windows, we need to uncomment the following command
 #RUN sed -i.bak 's/\r$//' start.sh
 
 ADD start.sh /start.sh

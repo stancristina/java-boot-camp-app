@@ -1,6 +1,6 @@
-CREATE USER 'root'@'%' IDENTIFIED BY 'javadevcamp';
+CREATE USER 'jdc'@'%' IDENTIFIED BY 'devcamp';
 
-GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' WITH GRANT OPTION;
+GRANT ALL PRIVILEGES ON *.* TO 'jdc'@'%' WITH GRANT OPTION;
 
 drop database if exists javadevcamp;
 

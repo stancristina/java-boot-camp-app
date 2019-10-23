@@ -12,6 +12,7 @@ public class HelloWorld {
                 "jdbc:mysql://localhost:3306/javadevcamp",
                 "jdc",
                 "devcamp" );
+        conn.close();
         System.out.println("Hello World");
     }
 

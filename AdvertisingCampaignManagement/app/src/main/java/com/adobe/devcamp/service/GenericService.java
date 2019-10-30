@@ -1,6 +1,6 @@
 package com.adobe.devcamp.service;
 
-import com.adobe.devcamp.dao.UserDao;
+import com.adobe.devcamp.dao.GenericDao;
 import com.adobe.devcamp.model.User;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -12,16 +12,16 @@ import java.util.Map;
 
 public final class UserService {
     private final Logger logger = LoggerFactory.getLogger(UserService.class);
-    private final UserDao userDao;
+    private final GenericDao genericDao;
     private final ObjectMapper objectMapper;
 
-    public UserService(UserDao userDao, ObjectMapper objectMapper) {
-        this.userDao = userDao;
+    public UserService(GenericDao genericDao, ObjectMapper objectMapper) {
+        this.genericDao = genericDao;
         this.objectMapper = objectMapper;
     }
 
     public Map<Integer, User> getUser() {
-        final Map<Integer, String> usersMap = userDao.selectUsers();
+        final Map<Integer, String> usersMap = genericDao.selectAll();
         final Map<Integer, User> users = new HashMap();
 
         for(Map.Entry<Integer, String> entry : usersMap.entrySet()) {

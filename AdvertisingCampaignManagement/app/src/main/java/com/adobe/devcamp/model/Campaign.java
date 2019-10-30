@@ -1,5 +1,8 @@
 package com.adobe.devcamp.model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.lang.annotation.Target;
 import java.util.List;
 import java.util.Objects;
@@ -11,7 +14,12 @@ public final class Campaign {
     private final Integer  advertiserId;
     private final Target target;
 
-    public Campaign(String name, long startTime, long endTime, Integer advertiserId, Target target) {
+    @JsonCreator
+    public Campaign(@JsonProperty("name") String name,
+                    @JsonProperty("startTime") long startTime,
+                    @JsonProperty("endTime") long endTime,
+                    @JsonProperty("advertiserId") Integer advertiserId,
+                    @JsonProperty("target") Target target) {
         this.name = name;
         this.startTime = startTime;
         this.endTime = endTime;
@@ -73,7 +81,11 @@ public final class Campaign {
         public final short maxAge;
         public final List<Domain> interests;
 
-        public Target(Gender gender, short minAge, short maxAge, List<Domain> interests) {
+        @JsonCreator
+        public Target(@JsonProperty("gender") Gender gender,
+                      @JsonProperty("minAge") short minAge,
+                      @JsonProperty("maxAge") short maxAge,
+                      @JsonProperty("interests") List<Domain> interests) {
             this.gender = gender;
             this.minAge = minAge;
             this.maxAge = maxAge;

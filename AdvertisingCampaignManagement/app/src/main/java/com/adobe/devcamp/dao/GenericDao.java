@@ -15,34 +15,47 @@ import java.sql.Statement;
 import java.util.HashMap;
 import java.util.Map;
 
-public final class UserDao {
-    private final Logger logger = LoggerFactory.getLogger(UserDao.class);
+public final class GenericDao<T> {
+    private final Logger logger = LoggerFactory.getLogger(GenericDao.class);
     private final Connection connection;
     private static final Map<Class, String> TABLES = new HashMap<>();
 
     static {
         TABLES.put(User.class, "users");
-        TABLES.put(Advertiser.class, "advertiser");
-        TABLES.put(Publisher.class, "publisher");
-        TABLES.put(Campaign.class, "campaign");
+        TABLES.put(Advertiser.class, "advertisers");
+        TABLES.put(Publisher.class, "publishers");
+        TABLES.put(Campaign.class, "campaigns");
     }
 
-    public UserDao(DataSource dataSource) throws SQLException {
+    public GenericDao(DataSource dataSource) throws SQLException {
         this.connection = dataSource.getConnection();
     }
 
-    public Map<Integer, String> selectUsers() {
-        final Map<Integer, String> users = new HashMap<>();
-        final String query = "SELECT * FROM " + TABLES.get(User.class);
+    public Map<Integer, String> selectAll(Class<T> clazz) {
+        final Map<Integer, String> all = new HashMap<>();
+        final String query = "SELECT * FROM " + TABLES.get(clazz);
         try (final Statement stmt = connection.createStatement()) {
             final ResultSet rs =  stmt.executeQuery(query);
             while(rs.next()) {
-                users.put(rs.getInt(1), rs.getString(2));
+                all.put(rs.getInt(1), rs.getString(2));
             }
         } catch (SQLException e) {
            // e.printStackTrace();
             logger.error("Query {}  failed because {}", query,  e.getMessage());
         }
-        return users;
+        return all;
+    }
+
+    public String selectById(Class<T> clazz, int id) {
+        final String query = "SELECT json FROM " + TABLES.get(clazz) + " WHERE id = " + id;
+        try (final Statement stmt = connection.createStatement()) {
+            final ResultSet rs = stmt.executeQuery(query);
+            if(rs.next()) {
+                return rs.getString(1);
+            }
+        } catch(SQLException e) {
+            logger.error("Query {} failed because {}", query, e.getMessage());
+        }
+        return null;
     }
 }

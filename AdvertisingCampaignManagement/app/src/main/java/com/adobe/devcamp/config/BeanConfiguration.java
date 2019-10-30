@@ -1,15 +1,13 @@
 package com.adobe.devcamp.config;
 
-import com.adobe.devcamp.dao.UserDao;
-import com.adobe.devcamp.service.UserService;
+import com.adobe.devcamp.dao.GenericDao;
+import com.adobe.devcamp.service.GenericService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.mysql.cj.jdbc.MysqlDataSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import javax.sql.DataSource;
-import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.SQLException;
 
 @Configuration
@@ -30,12 +28,12 @@ public class BeanConfiguration {
     }
 
     @Bean
-    public UserDao userDao() throws SQLException {
-        return new UserDao(dataSource());
+    public GenericDao userDao() throws SQLException {
+        return new GenericDao(dataSource());
     }
 
     @Bean
-    public UserService userService(UserDao userDao, ObjectMapper objectMapper) throws SQLException {
-        return new UserService(userDao(), objectMapper());
+    public GenericService userService(GenericDao genericDao, ObjectMapper objectMapper) throws SQLException {
+        return new GenericService(userDao(), objectMapper());
     }
 }

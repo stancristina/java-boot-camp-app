@@ -7,32 +7,46 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.HashMap;
 import java.util.Map;
 
-public final class UserService {
-    private final Logger logger = LoggerFactory.getLogger(UserService.class);
-    private final GenericDao genericDao;
+public final class GenericService<T> {
+    private final Logger logger = LoggerFactory.getLogger(GenericService.class);
+    private final GenericDao<T> genericDao;
     private final ObjectMapper objectMapper;
 
-    public UserService(GenericDao genericDao, ObjectMapper objectMapper) {
+    public GenericService(GenericDao genericDao, ObjectMapper objectMapper) {
         this.genericDao = genericDao;
         this.objectMapper = objectMapper;
     }
 
-    public Map<Integer, User> getUser() {
-        final Map<Integer, String> usersMap = genericDao.selectAll();
-        final Map<Integer, User> users = new HashMap();
+    public Map<Integer, T> getAll(Class<T> clazz) {
+        final Map<Integer, String> map = genericDao.selectAll(clazz);
+        final Map<Integer, T> all = new HashMap();
 
-        for(Map.Entry<Integer, String> entry : usersMap.entrySet()) {
-            final User user;
+        for(Map.Entry<Integer, String> entry : map.entrySet()) {
+            final T t;
             try {
-                user = objectMapper.readValue(entry.getValue(), User.class);
-                users.put(entry.getKey(), user);
+                t = objectMapper.readValue(entry.getValue(), clazz);
+                all.put(entry.getKey(), t);
             } catch (JsonProcessingException e) {
                 logger.error("Object {} could not be deserialized", entry.getValue());
             }
         }
-        return users;
+        return all;
+    }
+
+
+    public T getById(Class<T> clazz, int id) {
+        final String json = genericDao.selectById(clazz, id);
+        try {
+            return objectMapper.readValue(json, clazz);
+        } catch (JsonProcessingException e) {
+            logger.error("Object {} could not be deserialized", e);
+        }
+        return null;
     }
 }

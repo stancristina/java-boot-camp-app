@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.time.Year;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -66,6 +67,10 @@ public class AdvertiserController {
         return users.stream()
                 .filter(user -> user.getProfile().getGender() == campaign.getTarget().getGender())
                 //to do filter by age and domains
+//                .filter(user ->
+//                        Year.now().getValue() - user.getProfile().getDateOfBirth().getYear() >= campaign.getTarget().minAge
+//                        && Year.now().getValue() - user.getProfile().getDateOfBirth().getYear() <= campaign.getTarget().maxAge)
+                //.filter(user -> user.getProfile().getInterests().)
                 .collect(Collectors.toList());
     }
 }

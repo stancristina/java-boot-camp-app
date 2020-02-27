@@ -1,0 +1,99 @@
+[33mcommit 35b9e1da2fff667a8cfe73023e305740e657fef2[m[33m ([m[1;36mHEAD -> [m[1;32mcristinadevcamp[m[33m, [m[1;31morigin/cristinadevcamp[m[33m)[m
+Author: Cristina Stan <stancristina46@gmail.com>
+Date:   Thu Oct 31 19:22:03 2019 +0200
+
+    Type of Software Development tests
+
+[33mcommit a6243321500cd1862e7ce6251bd7de50c48629ca[m
+Author: Cristina Stan <stancristina46@gmail.com>
+Date:   Wed Oct 30 22:06:03 2019 +0200
+
+    Added controllers
+
+[33mcommit 8f400bc44b717720e624566cfa2bb3d4b928a64d[m
+Author: Cristina Stan <stancristina46@gmail.com>
+Date:   Wed Oct 30 20:16:17 2019 +0200
+
+    Added controllers
+
+[33mcommit a44b6dba73c7ced2edf9eaa24deb3810d4e1d926[m
+Author: Cristina Stan <stancristina46@gmail.com>
+Date:   Thu Oct 24 20:22:31 2019 +0300
+
+    Add basic models and configures Spring
+
+[33mcommit c34110155f7c25d088c85de598719e228c15e51c[m
+Author: Cristina Stan <stancristina46@gmail.com>
+Date:   Wed Oct 23 22:29:17 2019 +0300
+
+    Add space
+
+[33mcommit d3054a4f93434142e94fb6c26fdc37c010a4908c[m
+Merge: 7806fb0 ca6c481
+Author: Vlad Coteanu <vlad.coteanu@uipath.com>
+Date:   Wed Oct 23 22:24:28 2019 +0300
+
+    Merge branch 'cristinadevcamp' of https://github.com/raileanu-adobe/initjavadevcamp into cristinadevcamp
+
+[33mcommit 7806fb04b6aaf19464f1c4b5590676eade146d1c[m
+Author: Vlad Coteanu <vlad.coteanu@uipath.com>
+Date:   Wed Oct 23 22:21:21 2019 +0300
+
+    Improve .gitignore. Close connection to db
+
+[33mcommit 920291362e6cb3cf1f243592142d896a149c4aba[m
+Author: Stan Cristina <stancristina46@gmail.com>
+Date:   Wed Oct 23 20:21:37 2019 +0300
+
+    Created Hello World
+
+[33mcommit ca6c48114f5e9bbdc16a16092d2e4a9b58c88a42[m
+Author: Vlad Coteanu <vlad.coteanu@uipath.com>
+Date:   Wed Oct 23 20:21:37 2019 +0300
+
+    Created Hello World
+
+[33mcommit 71ac4dc9b92079b7e29081ec3e3c41efd4841639[m[33m ([m[1;31morigin/master[m[33m, [m[1;31morigin/mariaandreescu[m[33m, [m[1;31morigin/chrisvladescu[m[33m, [m[1;31morigin/anadevcamp[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmaster[m[33m)[m
+Merge: ad0526b 7ddd335
+Author: laviniabobonete <lavinia.bobonete@gmail.com>
+Date:   Tue Oct 22 19:20:17 2019 +0300
+
+    Merge pull request #3 from raileanu-adobe/docs
+    
+    Password change
+
+[33mcommit 7ddd335fca3dcf80695717572614cda8a37b0228[m
+Author: bobonete <bobonete@adobe.com>
+Date:   Tue Oct 22 19:18:58 2019 +0300
+
+    Password change
+
+[33mcommit ad0526bc439eac849d32b82d16469828428477b9[m
+Author: laviniabobonete <lavinia.bobonete@gmail.com>
+Date:   Tue Oct 22 11:44:24 2019 +0300
+
+    Docs (#2)
+
+[33mcommit 8c54170ad065a78c658565ac9524c0bd403cce8a[m
+Author: laviniabobonete <lavinia.bobonete@gmail.com>
+Date:   Tue Oct 22 11:09:11 2019 +0300
+
+    Provisioning (#1)
+
+[33mcommit ba76bf1a4cf46f6d8285e6444beac6e836fcd99e[m
+Author: raileanu <raileanu@adobe.com>
+Date:   Mon Oct 21 22:54:07 2019 +0300
+
+    git ignore some more
+
+[33mcommit 0898d2486128a4a3445eed21c0c5add2d7b73b4e[m
+Author: raileanu <raileanu@adobe.com>
+Date:   Mon Oct 21 22:39:23 2019 +0300
+
+    Project structure
+
+[33mcommit e3d23aa57a309d9c72e26049b800e4c77053a093[m
+Author: Ana Maria Raileanu <53307493+raileanu-adobe@users.noreply.github.com>
+Date:   Mon Oct 21 22:19:28 2019 +0300
+
+    Initial commit
